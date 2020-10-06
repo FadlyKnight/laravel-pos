@@ -10,8 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
     
-    public function transaksi() {
-        return $this->hasMany(App\Transaksi::class);
+    public function transaction() {
+        return $this->hasMany(App\Transaction::class);
     }
 
     /**
