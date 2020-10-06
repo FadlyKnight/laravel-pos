@@ -14,4 +14,12 @@ class ProductCategory extends Model
     public function product() {
     	return $this->hasMany(Product::class, 'product_category_id', 'id');
     }
+    
+    public function rules()
+    {
+        return [
+            'name' => 'required|max:255',
+        ];
+    }
+    
 }

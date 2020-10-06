@@ -12,4 +12,13 @@ class TransactionTemporary extends Model
     public function product() {
     	return $this->belongsTo(Product::class);
     }
+    
+    public function rules()
+    {
+        return [
+            'product_id'  => 'required',
+            'qty'  => 'required',
+        ];
+    }
+
 }

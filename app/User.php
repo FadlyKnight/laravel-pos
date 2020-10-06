@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'role', 'password',
     ];
 
     /**
@@ -40,4 +40,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rules()
+    {
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'role' => ['required'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ];
+    }
+
+    public function hasRole($role)
+    {
+        if ($this->role  == $role ) {
+            return true;
+        }
+            return false;
+    }
 }

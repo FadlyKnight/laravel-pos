@@ -19,4 +19,12 @@ class Transaction extends Model
         return $this->hasOne(TransactionDetail::class);
     }
 
+    public function rules()
+    {
+        return [
+            'users_id' => 'required',
+            'total' => 'required',
+            'pay_total' => 'required',
+        ];
+    }
 }

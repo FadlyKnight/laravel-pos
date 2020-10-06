@@ -11,6 +11,11 @@ use Illuminate\Support\Str;
 
 class DevController extends Controller
 {
+    public function layout()
+    {
+        return view('admin.dash');
+    }
+
     public function generateQRcode()
     {
         QRcode::url(URL::current())

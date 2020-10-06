@@ -28,6 +28,7 @@ class CreateProduksTable extends Migration
             $table->text('desc')->nullable();
             $table->text('gallery')->nullable();
             $table->string('status');
+            $table->integer('is_deleted', 1)->default(0);
             $table->timestamps();
 
             // $table->foreign('product_category_id')->references('id')->on('product_category')->onDelete('cascade');

@@ -38,4 +38,21 @@ class Product extends Model
         return $this->hasMany(ProductOut::class);
     }
 
+    public function rules()
+    {
+        return [
+            'product_category_id' => 'required',
+            'name' => 'required|max:255',
+            'price' => 'required',
+            'sub_price' => 'nullable',
+            'stock' => 'required',
+            'image' => 'nullable',
+            'qrcode' => 'required',
+            'product_code' => 'required|unique:product',
+            'desc' => 'nullable',
+            'gallery' => 'nullable',
+            'status' => 'required',
+        ];
+    }
+
 }
