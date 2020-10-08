@@ -5,6 +5,7 @@
     <title>Dashboard Two | Notika - Notika Admin Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @yield('meta-name')
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">

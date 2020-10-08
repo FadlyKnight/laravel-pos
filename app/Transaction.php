@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\TransactionDetail;
+use Illuminate\Support\Facades\Validator;
 
 class Transaction extends Model
 {
@@ -12,11 +13,12 @@ class Transaction extends Model
     protected $guarded = [];
 
     public function user() {
-    	return $this->belongsTo(User::class, 'users_id');
+        // $this->belongsToMany()
+    	return $this->belongsToMany(User::class, 'users_id', 'id');
     }
 
     public function transactionDetail() {
-        return $this->hasOne(TransactionDetail::class);
+        return $this->hasOne(TransactionDetail::class, 'transaction_id', 'id');
     }
 
     public function rules()
@@ -26,5 +28,10 @@ class Transaction extends Model
             'total' => 'required',
             'pay_total' => 'required',
         ];
+    }
+
+    public function validation($data, Array $rules = [])
+    {
+        return Validator::make($data, $rules);
     }
 }

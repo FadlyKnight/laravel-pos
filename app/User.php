@@ -11,7 +11,7 @@ class User extends Authenticatable
     use Notifiable;
     
     public function transaction() {
-        return $this->hasMany(App\Transaction::class);
+        return $this->hasMany(Transaction::class, 'users_id', 'id');
     }
 
     /**

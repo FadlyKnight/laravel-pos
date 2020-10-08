@@ -25,8 +25,9 @@ Route::group(['middleware' => ['auth','role:Admin'], 'prefix' => 'admin'], funct
         Route::post('/trash-restore/{id}','ProductController@trashOrRestore');
         Route::post('/restore-all','ProductController@restoreAll');
         Route::post('/delete/{id}','ProductController@delete');
-
     });
+
+    
 
     Route::get('/yo', function () {
         return 'hai';
@@ -34,11 +35,18 @@ Route::group(['middleware' => ['auth','role:Admin'], 'prefix' => 'admin'], funct
 });
 
 Route::group(['prefix' => 'dev'], function () {
+    Route::get('/pusher', function () {
+        return view('pusher');
+    });
+
     Route::get('/layout', 'DevController@layout');
     Route::get('/qrcode', 'DevController@generateQRcode');
     Route::get('/testRelasi', 'DevController@testRelasi');
+    // TRANSACTION
+    Route::get('/transaksi', 'TransactionController@storeTransaction');
 
-    // Route::get('/product/store','ProductController@store'); //Store Product
+    // PRODUK
+    Route::get('/product/store','ProductController@store'); //Store Product
     // Route::get('/product/update/{id}','ProductController@update'); //update Product
     // Route::get('/product/trash/{id}','ProductController@trashOrRestore'); //trash Product
     // Route::get('/product/delete/{id}','ProductController@delete');

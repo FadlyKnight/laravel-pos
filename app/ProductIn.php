@@ -19,6 +19,7 @@ class ProductIn extends Model
         return [
             'product_id' => 'required',
             'qty' => 'required',
+            'price_total' => 'required',
             'date' => 'required',
             'detail' => 'nullable',
         ];

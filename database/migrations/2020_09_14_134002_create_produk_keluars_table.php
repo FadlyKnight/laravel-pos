@@ -17,6 +17,7 @@ class CreateProdukKeluarsTable extends Migration
             $table->id();
             $table->integer('product_id')->unsigned();
             $table->integer('qty');
+            $table->integer('price_total');
             $table->date('date');
             $table->text('detail')->nullable();
             $table->timestamps();

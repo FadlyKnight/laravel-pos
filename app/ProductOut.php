@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
 
-class ProductKeluar extends Model
+class ProductOut extends Model
 {
     protected $table = 'product_out';
 
@@ -20,6 +20,7 @@ class ProductKeluar extends Model
         return [
             'product_id' => 'required',
             'qty' => 'required',
+            'price_total' => 'required',
             'date' => 'required',
             'detail' => 'nullable',
         ];

@@ -12,7 +12,7 @@ class TransactionDetail extends Model
     protected $guarded = [];
 
     public function transaction() {
-    	return $this->belongsTo(Transaction::class);
+    	return $this->belongsTo(Transaction::class, 'transaction_id', 'id');
     }
 
     public function product() {
@@ -27,5 +27,10 @@ class TransactionDetail extends Model
             'qty'  => 'required',
             'subtotal'  => 'required',
         ];
+    }
+    
+    public function validation($data, $rules)
+    {
+        return Validator::make($data, $rules);
     }
 }

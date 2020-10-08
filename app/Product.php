@@ -9,6 +9,7 @@ use App\ProductOut;
 use App\TransactionTemporary;
 use App\Transaction;
 use App\TransactionDetail;
+use Illuminate\Support\Facades\Validator;
 
 class Product extends Model
 {
@@ -55,4 +56,9 @@ class Product extends Model
         ];
     }
 
+    public function validation($data, $rules)
+    {
+        return Validator::make($data, $rules);
+    }
+    
 }
